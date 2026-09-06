@@ -1,5 +1,5 @@
+import App from "@/app/App";
 import { render, screen } from "@testing-library/react";
-import App from "../../../App";
 
 test("App test", async () => {
   render(<App />);
