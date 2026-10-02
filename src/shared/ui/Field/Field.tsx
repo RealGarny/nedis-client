@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 import { cn } from "cn";
 import { Label } from "@/shared/ui/Label";
 import { fieldVariants } from "./FieldVariants";
