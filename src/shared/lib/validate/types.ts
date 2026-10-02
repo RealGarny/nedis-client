@@ -31,15 +31,15 @@ export type InferObject<S extends ObjectShape> = PrettifyObject<
 
 type Infer<S> = S extends PrimitiveName
   ? Primitives[S]
-  : S extends OptionalParser<infer T>
-    ? T | undefined
-    : S extends Parser<infer T>
+  : S extends Parser<infer T>
+    ? [undefined] extends [T]
       ? T
-      : S extends readonly [infer Item]
-        ? Infer<Item>[]
-        : S extends ObjectShape
-          ? InferObject<S>
-          : never;
+      : T
+    : S extends readonly [infer Item]
+      ? Infer<Item>[]
+      : S extends ObjectShape
+        ? InferObject<S>
+        : never;
 
 export type {
   PrimitiveName,

@@ -20,11 +20,11 @@ function fail(path: string, expected: VariableTypes, raw: unknown): never {
 }
 
 const PRIMITIVES: { readonly [K in PrimitiveName]: Parser<unknown> } = {
-  string: (raw, path) => (typeof raw === "string" ? raw : fail(path, "string", raw)),
-  number: (raw, path) =>
+  string: (raw, path = "") => (typeof raw === "string" ? raw : fail(path, "string", raw)),
+  number: (raw, path = "") =>
     typeof raw === "number" && Number.isFinite(raw) ? raw : fail(path, "number", raw),
-  boolean: (raw, path) => (typeof raw === "boolean" ? raw : fail(path, "boolean", raw)),
-  timestamp: (raw, path) => {
+  boolean: (raw, path = "") => (typeof raw === "boolean" ? raw : fail(path, "boolean", raw)),
+  timestamp: (raw, path = "") => {
     if (typeof raw === "number" && Number.isFinite(raw)) return raw;
     const parsed = Date.parse(typeof raw === "string" ? raw : "");
     return Number.isNaN(parsed) ? fail(path, "timestamp", raw) : parsed;
@@ -71,7 +71,7 @@ function objectParser(shape: ObjectShape): Parser<Readonly<Record<string, unknow
   return (raw, path = "") => {
     if (typeof raw !== "object" || raw === null || Array.isArray(raw)) fail(path, "object", raw);
     const source = raw as Readonly<Record<string, unknown>>;
-    const result = {};
+    const result = {} as Record<string, unknown>;
 
     const { issues } = collect(
       fields.map(([entryKey, parser]) => [
@@ -149,7 +149,7 @@ function mapped<S extends Shape, T>(shape: S, map: (value: Infer<S>) => T): Pars
       return map(value);
     } catch (error) {
       throw new ContractError([
-        { path, message: error instanceof Error ? error.message : "значение отвергнуто" },
+        { path, message: error instanceof Error ? error.message : "value has been rejected" },
       ]);
     }
   };
