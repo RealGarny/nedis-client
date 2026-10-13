@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, it } from "vitest";
-import { ContractError } from "./contractError";
+import { ContractError } from "./ContractError";
 import { arrayOf, knownSetOf, mapped, objectOf, oneOf, optional, parseShape } from "./validate";
 import { doesNotExistInUnion, invalidType } from "./contractErrorDetails";
 

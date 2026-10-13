@@ -1,4 +1,4 @@
-import { InterceptorManager } from "./interceptorManager";
+import { InterceptorManager } from "./InterceptorManager";
 import { prebuildChain } from "./prebuildChain";
 import type { Interceptor } from "./types";
 

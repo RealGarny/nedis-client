@@ -1,4 +1,4 @@
-import type { ContractIssue } from "./contractError.types";
+import type { ContractIssue } from "./ContractError.types";
 
 class ContractError extends Error {
   override readonly name = "ContractError";

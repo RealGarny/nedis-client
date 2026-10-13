@@ -1,5 +1,5 @@
 import { doesNotExistInUnion, invalidType } from "./contractErrorDetails";
-import { ContractError } from "./contractError";
+import { ContractError } from "./ContractError";
 import type {
   Infer,
   InferObject,
@@ -10,7 +10,7 @@ import type {
   Shape,
   VariableTypes,
 } from "./types";
-import type { ContractIssue } from "./contractError.types";
+import type { ContractIssue } from "./ContractError.types";
 
 //TODO: try to reimplement parsing iteratively rather than recusively.
 //TODO: need to fix typing. Preferably, squash all type casts.

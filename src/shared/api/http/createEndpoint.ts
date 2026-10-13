@@ -3,7 +3,7 @@ import type { Endpoint, EndpointPath } from "./endpoint.types";
 
 const DEFAULT_TIMEOUS_MS = 15000;
 
-function createEndpoint<P extends EndpointPath, TReq, TRes>(
+function createEndpoint<P extends EndpointPath, TReq = undefined, TRes = unknown>(
   spec: EndpointSpec<P, TReq, TRes>,
 ): Endpoint<TReq, TRes> {
   return {

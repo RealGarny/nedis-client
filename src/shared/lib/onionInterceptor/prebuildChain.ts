@@ -1,4 +1,4 @@
-import type { InterceptorManager } from "./interceptorManager";
+import type { InterceptorManager } from "./InterceptorManager";
 import type { ChainHandler, CoreAction } from "./prebuildChain.types";
 
 function prebuildChain<TCtx, TResult>(

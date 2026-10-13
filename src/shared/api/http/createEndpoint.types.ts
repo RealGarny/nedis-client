@@ -23,7 +23,7 @@ type EndpointSpec<P extends EndpointPath, TReq, TRes> = {
   path: P;
   auth?: AuthMethod;
   timeoutMs?: number;
-  body: EndpointBodyHandler<TReq>;
+  body?: EndpointBodyHandler<TReq>;
   parseResponse: EndpointResponseHandler<TRes>;
 } & PathParamsOption<P, TReq>;
 
