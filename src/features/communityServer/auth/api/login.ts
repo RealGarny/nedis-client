@@ -1,6 +1,6 @@
 import { createEndpoint } from "@/shared/api/http";
-import { routes } from "@/shared/api/server";
-import type { TokenResponse } from "@/shared/api/server/tokens";
+import { routes } from "@/shared/api/communityServer";
+import type { TokenResponse } from "@/shared/api/communityServer";
 import { objectOf } from "@/shared/lib/validate";
 
 type LoginRequest = { login: string; password: string };
@@ -17,6 +17,7 @@ const login = createEndpoint({
   path: routes.auth.login,
   parseResponse: parseLogin,
   body: (req: LoginRequest) => req,
+  auth: "none",
 });
 
 export { login };
