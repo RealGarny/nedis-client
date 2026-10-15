@@ -5,9 +5,9 @@ import { resolveEndpointUrl } from "@/shared/lib/resolveEndpointUrl";
 import * as OnionInterceptor from "@/shared/lib/onionInterceptor";
 import type { BaseContext, BaseResponse, SessionContract } from "./types";
 import { authInterceptor } from "./interceptors/authInterceptor";
-import { timeoutInterceptor } from "./interceptors/timeoutInterceptor";
+import { timeoutInterceptor } from "../../http/request/interceptors/timeoutInterceptor";
 import { readBody } from "./readbody";
-import { jsonFallbackInterceptor } from "./interceptors/jsonFallbackInterceptor";
+import { jsonFallbackInterceptor } from "../../http/request/interceptors/jsonFallbackInterceptor";
 
 async function peformRequest(ctx: BaseContext): Promise<BaseResponse> {
   ctx.init.headers = ctx.headers;

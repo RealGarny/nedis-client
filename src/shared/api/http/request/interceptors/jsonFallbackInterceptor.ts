@@ -1,4 +1,4 @@
-import type { Interceptor } from "../types";
+import type { Interceptor } from "../../../communityServer/send/types";
 
 const jsonFallbackInterceptor: Interceptor = (ctx, next) => {
   // Without it fetch sends a string body as text/plain

@@ -1,4 +1,4 @@
-import type { Interceptor } from "../types";
+import type { Interceptor } from "../../../communityServer/send/types";
 
 const timeoutInterceptor: Interceptor = async (ctx, next) => {
   const timeout = AbortSignal.timeout(ctx.endpoint.timeoutMs);
