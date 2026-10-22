@@ -1,9 +1,10 @@
-import type { Interceptor } from "../types";
+import type { RequestInterceptor } from "@/shared/api/http/request/types";
+import type { SessionContract } from "../types";
 
-const authInterceptor: Interceptor = async (ctx, next) => {
-  if (ctx.endpoint.auth !== "bearer") return next();
+const authInterceptor: RequestInterceptor<SessionContract> = async (ctx, next) => {
+  if (ctx.endpoint.auth !== "required") return next();
 
-  const { tokens } = ctx.serverSession;
+  const { tokens } = ctx.target;
 
   ctx.headers.set("Authorization", `Bearer ${await tokens.getToken()}`);
 

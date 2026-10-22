@@ -1,18 +1,20 @@
 import type { PrettifyObject } from "@/shared/types/prettifyObject";
 
-interface SendArgsOptions {
+interface RequestArgsOptions {
   readonly signal?: AbortSignal | undefined;
   readonly headers?: Record<string, string>;
 }
 
 type PayloadField<TReq> = [TReq] extends [undefined] ? { payload?: undefined } : { payload: TReq };
 
-type SendArgs<TReq> = PrettifyObject<
+type RequestArgs<TReq> = PrettifyObject<
   PayloadField<TReq> & {
-    options?: SendArgsOptions;
+    options?: RequestArgsOptions;
   }
 >;
 
-type SendRest<TReq> = [TReq] extends [undefined] ? [args?: SendArgs<TReq>] : [args: SendArgs<TReq>];
+type RequestRest<TReq> = [TReq] extends [undefined]
+  ? [args?: RequestArgs<TReq>]
+  : [args: RequestArgs<TReq>];
 
-export type { SendArgs, SendArgsOptions, SendRest };
+export type { RequestArgs, RequestArgsOptions, RequestRest };

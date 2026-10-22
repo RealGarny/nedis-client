@@ -1,4 +1,4 @@
-import type { EndpointPath } from "../http/endpoint.types";
+import type { EndpointPath } from "@/shared/api/http";
 
 const routes = {
   auth: {

@@ -1,3 +1,4 @@
 export { createTokenProvider } from "./tokenProvider";
-export type { TokenProvider } from "./tokenProvider.types";
+export { createRefreshExchange } from "./createRefreshExchange";
+export type { TokenProvider, Options } from "./tokenProvider.types";
 export type { TokenResponse } from "./types";

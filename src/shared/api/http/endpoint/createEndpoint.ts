@@ -12,7 +12,7 @@ function createEndpoint<P extends EndpointPath, TReq = undefined, TRes = unknown
     pathParams: spec.pathParams,
     body: spec.body,
     parseResponse: spec.parseResponse,
-    auth: spec.auth ?? "bearer",
+    auth: spec.auth ?? "required",
     timeoutMs: spec.timeoutMs ?? DEFAULT_TIMEOUS_MS,
   };
 }

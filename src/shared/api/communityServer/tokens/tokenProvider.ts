@@ -48,7 +48,7 @@ export const createTokenProvider = (
 
       let response: TokenResponse;
       try {
-        response = await exchangeRefresh(origin, refreshToken);
+        response = await exchangeRefresh(refreshToken);
       } catch (e) {
         if (e instanceof NeedLoginError) {
           await deleteRefreshToken(origin);

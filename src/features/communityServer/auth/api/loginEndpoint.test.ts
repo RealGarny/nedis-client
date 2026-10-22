@@ -3,7 +3,7 @@ import type { SessionContract } from "@/shared/api/communityServer";
 import { HttpError } from "@/shared/api/http";
 import type { Origin } from "@/shared/lib/communityServer";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { login } from "./login";
+import { loginEndpoint } from "./loginEndpoint";
 
 function sessionWithoutTokens(): SessionContract {
   const fail = vi.fn(async () => {
@@ -37,7 +37,7 @@ describe("login endpoint", () => {
     );
     vi.stubGlobal("fetch", fetchMock);
 
-    const result = await send(sessionWithoutTokens(), login, {
+    const result = await send(sessionWithoutTokens(), loginEndpoint, {
       payload: { login: "alice", password: "password123" },
     });
 
@@ -56,7 +56,7 @@ describe("login endpoint", () => {
     );
     const session = sessionWithoutTokens();
 
-    const error = await send(session, login, {
+    const error = await send(session, loginEndpoint, {
       payload: { login: "alice", password: "wrong" },
     }).catch((e: unknown) => e);
 
