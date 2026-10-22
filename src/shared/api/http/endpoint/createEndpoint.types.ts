@@ -1,5 +1,5 @@
 import type {
-  AuthMethod,
+  AuthRequirement,
   EndpointBodyHandler,
   EndpointPath,
   EndpointResponseHandler,
@@ -21,7 +21,7 @@ type PathParamsOption<P extends string, TReq> = [PathParamNames<P>] extends [nev
 type EndpointSpec<P extends EndpointPath, TReq, TRes> = {
   method: HttpMethod;
   path: P;
-  auth?: AuthMethod;
+  auth?: AuthRequirement;
   timeoutMs?: number;
   body?: EndpointBodyHandler<TReq>;
   parseResponse: EndpointResponseHandler<TRes>;

@@ -12,7 +12,7 @@ function parseLogin(raw: unknown): TokenResponse {
   )(raw);
 }
 
-const login = createEndpoint({
+const loginEndpoint = createEndpoint({
   method: "POST",
   path: routes.auth.login,
   parseResponse: parseLogin,
@@ -20,4 +20,4 @@ const login = createEndpoint({
   auth: "none",
 });
 
-export { login };
+export { loginEndpoint };

@@ -10,7 +10,7 @@ interface TokenProvider {
   clear: () => Promise<void>;
 }
 
-type ExchangeRefresh = (origin: Origin, refresh: string) => Promise<TokenResponse>;
+type ExchangeRefresh = (refresh: string) => Promise<TokenResponse>;
 
 type Options = {
   onRefreshFailed?: EventListener<Origin>;

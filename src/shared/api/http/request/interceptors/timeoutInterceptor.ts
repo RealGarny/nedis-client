@@ -1,6 +1,6 @@
-import type { Interceptor } from "../types";
+import type { RequestInterceptor } from "../types";
 
-const timeoutInterceptor: Interceptor = async (ctx, next) => {
+const timeoutInterceptor: RequestInterceptor = async (ctx, next) => {
   const timeout = AbortSignal.timeout(ctx.endpoint.timeoutMs);
   const callerSignal = ctx.options?.signal;
 

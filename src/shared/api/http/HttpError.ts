@@ -1,4 +1,4 @@
-import type { HttpMethod } from "./endpoint.types";
+import type { HttpMethod } from "./endpoint";
 
 class HttpError extends Error {
   override readonly name = "HttpError";

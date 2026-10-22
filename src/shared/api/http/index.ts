@@ -1,3 +1,3 @@
-export type { Endpoint, HttpMethod } from "./endpoint.types";
-export { createEndpoint } from "./createEndpoint";
+export * from "./endpoint";
+export * from "./request";
 export { HttpError } from "./HttpError";
